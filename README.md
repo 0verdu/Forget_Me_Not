@@ -116,21 +116,24 @@ No assumptions made about DART structure; analysis based on documented Apple SoC
 **All violations have full RW permissions (bits 63:62 = `11`).**
 
 ### A14 Bionic (2020) Examples
-
 ```
 [1] Offset: 0x0e340
     TTE:    0xc00000080003000f
     Target: 0x800030000 (SEP_HIGH)
     Perms:  RW (bits 63:62 = 11)
 
-[2] Offset: 0x2c0c8
+[2] Offset: 0x20440
+    TTE:    0x02000000000000cf
+    Target: 0x000000000 (SEP_SRAM_DATA_RW)
+    Perms:  RW (bits 63:62 = 00, special case)
+
+[3] Offset: 0x2c0c8
     TTE:    0xf00000020000000f
     Target: 0x200000000 (AOP)
     Perms:  RW (bits 63:62 = 11)
 ```
 
 ### A16 Bionic (2022) Examples
-
 ```
 [1] Offset: 0x08400
     TTE:    0xf00000084100200f
@@ -141,12 +144,16 @@ No assumptions made about DART structure; analysis based on documented Apple SoC
     TTE:    0xc00000020102900f
     Target: 0x201029000 (AOP)
     Perms:  RW (bits 63:62 = 11)
+
+[3] Offset: 0xc0f10
+    TTE:    0x020000000200009f
+    Target: 0x200000000 (SEP_SRAM_SECURE_RW)
+    Perms:  RW (bits 63:62 = 00, special case)
 ```
 
 **A16 shows 145% increase over A14** (118 vs 48 violations), suggesting architectural changes exacerbated the flaw.
 
 ### A17 Pro (2023) Examples
-
 ```
 [1] Offset: 0x3b2f8
     TTE:    0xf00000086000700f
@@ -157,9 +164,15 @@ No assumptions made about DART structure; analysis based on documented Apple SoC
     TTE:    0xc00000020000000f
     Target: 0x200000000 (AOP)
     Perms:  RW (bits 63:62 = 11)
+
+[3] Offset: 0xa2ac8
+    TTE:    0x020000000200009f
+    Target: 0x200000000 (SEP_SRAM_SECURE_RW)
+    Perms:  RW (bits 63:62 = 00, special case)
 ```
 
 **A17 reduction (27 violations) is NOT remediation** - fundamental flaw persists in latest silicon.
+
 
 ### SoC_RAM.bin Validation
 

@@ -171,7 +171,6 @@ TTE:    0xf7f20008f1044641
 Binary: 11110111 11110010... (bits 63:62 = 11 = RW)
 Target: 0x8f1044000 (SEP_HIGH)
 ```
-
 **8 violations detected, confirming tracev3 pattern.**
 
 ---

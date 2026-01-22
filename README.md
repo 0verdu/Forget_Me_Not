@@ -32,7 +32,7 @@
 
 **Remediation:** Software patches cannot fix silicon-level architectural flaws. Hardware redesign required.
 
-**No evidence of remediation** in latest generation (A17 Pro, 2023).
+**No evidence of remediation** in current production (A17 Pro, 2023).
 
 ---
 
@@ -171,7 +171,7 @@ No assumptions made about DART structure; analysis based on documented Apple SoC
     Perms:  RW (bits 63:62 = 00, special case)
 ```
 
-**A17 reduction (27 violations) is NOT remediation** - fundamental flaw persists in latest silicon.
+**A17 reduction (27 violations) is NOT remediation** - fundamental flaw persists in production silicon.
 
 
 ### SoC_RAM.bin Validation
